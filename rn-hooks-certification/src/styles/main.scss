@@ -1,0 +1,206 @@
+// Bootstrap
+@use 'bootstrap/scss/bootstrap';
+
+// ─── Variables del proyecto ───────────────────────────────────
+$bg-primary: #161b22;
+$bg-secondary: #0d1117;
+$bg-card: #21262d;
+$border-color: #30363d;
+$text-primary: #c9d1d9;
+$text-secondary: #8b949e;
+$accent: #4fc3f7;
+$accent-hover: #1f6feb;
+$success: #4caf50;
+$danger: #f44336;
+$warning: #ff9800;
+$purple: #9c27b0;
+
+// ─── Base ─────────────────────────────────────────────────────
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $bg-primary;
+  color: $text-primary;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+// ─── Layout ───────────────────────────────────────────────────
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  width: 260px;
+  padding: 1rem;
+  background: $bg-secondary;
+  border-right: 1px solid $border-color;
+  overflow-y: auto;
+}
+
+.app-sidebar__title {
+  color: $accent;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-sidebar__subtitle {
+  font-size: 0.8rem;
+  color: $text-secondary;
+}
+
+.app-sidebar__btn {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.3rem;
+  text-align: left;
+  background: transparent;
+  color: $text-primary;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.15s;
+
+  &:hover {
+    background: rgba($accent-hover, 0.1);
+  }
+
+  &--active {
+    background: rgba($accent-hover, 0.2);
+    color: $accent;
+    border-color: $accent-hover;
+  }
+}
+
+.app-content {
+  flex: 1;
+  padding: 2rem;
+  background: $bg-primary;
+  color: $text-primary;
+  overflow-y: auto;
+}
+
+// ─── Componentes reutilizables ────────────────────────────────
+.example-card {
+  padding: 1rem;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+
+  &--success {
+    border-color: $success;
+  }
+
+  &--danger {
+    border-color: $danger;
+  }
+
+  &--warning {
+    border-color: $warning;
+  }
+
+  &--purple {
+    border-color: $purple;
+  }
+
+  &--accent {
+    border-color: $accent;
+  }
+}
+
+.code-block {
+  font-size: 0.85rem;
+  background: $bg-secondary;
+  color: $text-primary;
+  padding: 0.75rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+  white-space: pre;
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+}
+
+// ─── Botones custom ──────────────────────────────────────────
+.btn-app {
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid $border-color;
+  background: $bg-card;
+  color: $text-primary;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: background 0.15s;
+
+  &:hover {
+    background: $border-color;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ─── Inputs custom ───────────────────────────────────────────
+.input-app {
+  background: $bg-secondary;
+  border: 1px solid $border-color;
+  color: $text-primary;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+
+  &:focus {
+    outline: none;
+    border-color: $accent;
+  }
+}
+
+// ─── Tema claro/oscuro para demos ────────────────────────────
+.theme-dark {
+  background: $bg-secondary;
+  color: #fff;
+}
+
+.theme-light {
+  background: #ffffff;
+  color: #333333;
+}
+
+// ─── Timer display ───────────────────────────────────────────
+.timer-display {
+  font-size: 2rem;
+  font-family: monospace;
+}
+
+// ─── Utilidades ──────────────────────────────────────────────
+.text-accent {
+  color: $accent;
+}
+
+.text-success {
+  color: $success;
+}
+
+.text-danger {
+  color: $danger;
+}
+
+.text-muted {
+  color: $text-secondary;
+}
+
+.text-warning {
+  color: $warning;
+}

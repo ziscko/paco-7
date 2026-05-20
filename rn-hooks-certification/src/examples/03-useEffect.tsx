@@ -51,7 +51,7 @@ function EfectoAlMontar() {
     const timer = setTimeout(() => {
       setData('Datos cargados desde la API')
       setLoading(false)
-    }, 1500)
+    }, 4500)
 
     return () => {
       clearTimeout(timer)

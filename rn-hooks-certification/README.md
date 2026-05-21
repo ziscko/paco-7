@@ -1,6 +1,7 @@
 # React Certification - Topic 7: Hooks
 
 pnpm install
+
 pnpm dev
 
 # React + TypeScript + Vite

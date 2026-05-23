@@ -110,73 +110,6 @@ useEffect(() => {
   )
 }
 
-function TimerConRef() {
-  const [seconds, setSeconds] = useState(0)
-  const [isRunning, setIsRunning] = useState(false)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
-
-  const start = () => {
-    if (isRunning) return
-    setIsRunning(true)
-    intervalRef.current = setInterval(() => {
-      setSeconds((s) => s + 1)
-    }, 1000)
-  }
-
-  const stop = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current)
-      intervalRef.current = null
-    }
-    setIsRunning(false)
-  }
-
-  const reset = () => {
-    stop()
-    setSeconds(0)
-  }
-
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current)
-      }
-    }
-  }, [])
-
-  return (
-    <div className="example-card">
-      <h3>3. Persistencia de variables mutables (Timer)</h3>
-
-      <p className="timer-display mb-3">
-        {String(Math.floor(seconds / 60)).padStart(2, '0')}:{String(seconds % 60).padStart(2, '0')}
-      </p>
-
-      <div className="d-flex gap-2">
-        <button className="btn btn-success btn-sm" onClick={start} disabled={isRunning}>
-          ▶️ Start
-        </button>
-        <button className="btn btn-warning btn-sm" onClick={stop} disabled={!isRunning}>
-          ⏸ Stop
-        </button>
-        <button className="btn btn-outline-secondary btn-sm" onClick={reset}>
-          🔄 Reset
-        </button>
-      </div>
-
-      <pre className="code-block mt-3">
-        {`// Guardar referencia al interval para poder limpiarlo
-const intervalRef = useRef<NodeJS.Timeout | null>(null)
-
-intervalRef.current = setInterval(() => { ... }, 1000)
-
-// Limpiar cuando sea necesario
-clearInterval(intervalRef.current)`}
-      </pre>
-    </div>
-  )
-}
-
 export default function UseRefDemo() {
   return (
     <div>
@@ -188,7 +121,6 @@ export default function UseRefDemo() {
       <div className="d-flex flex-column gap-3">
         <AccesoDOM />
         <ValorSinRender />
-        <TimerConRef />
       </div>
     </div>
   )

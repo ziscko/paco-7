@@ -49,10 +49,10 @@ function AccesoDOM() {
       </div>
 
       <pre className="code-block">
-        {`const inputRef = useRef<HTMLInputElement>(null)
+        {`
 
 // En React Native:
-// const inputRef = useRef<TextInput>(null)
+const inputRef = useRef<HTMLInputElement>(null)
 
 // Acceso directo al nodo
 inputRef.current?.focus()`}

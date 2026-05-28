@@ -15,13 +15,14 @@
  * - React Documentation > Lifecycle of Reactive Effects
  */
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 // ─── Ejemplo: ChatRoom ────────────────────────────────────────
 
 function ChatRoom({ roomId }: { roomId: string }) {
   const [serverUrl, setServerUrl] = useState('https://localhost:1234')
   const [messages, setMessages] = useState<string[]>([])
+  const logRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // Effect starts synchronizing
@@ -36,6 +37,12 @@ function ChatRoom({ roomId }: { roomId: string }) {
     }
   }, [serverUrl, roomId]) // Dependencies: Effect re-synchronizes when these change
 
+  useEffect(() => {
+    if (logRef.current) {
+      logRef.current.scrollTop = logRef.current.scrollHeight
+    }
+  }, [messages])
+
   return (
     <div>
       <div className="d-flex gap-2 mb-3">
@@ -46,12 +53,15 @@ function ChatRoom({ roomId }: { roomId: string }) {
           onChange={(e) => setServerUrl(e.target.value)}
         />
       </div>
-      <div className="message-log">
+      <div className="message-log" ref={logRef}>
         {messages.map((msg, i) => (
           <div key={i}>{msg}</div>
         ))}
         {messages.length === 0 && <span className="text-muted">Sin mensajes aún...</span>}
       </div>
+      <button className="btn btn-outline-secondary btn-sm mt-2" onClick={() => setMessages([])}>
+        Clear log
+      </button>
     </div>
   )
 }

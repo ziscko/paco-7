@@ -2,7 +2,7 @@
 @use 'bootstrap/scss/bootstrap';
 
 // ─── Variables del proyecto ───────────────────────────────────
-$bg-primary: #161b22;
+$bg-primary: #10161e;
 $bg-secondary: #0d1117;
 $bg-card: #21262d;
 $border-color: #30363d;
@@ -44,7 +44,6 @@ body {
   width: 260px;
   padding: 1rem;
   background: $bg-secondary;
-  border-right: 1px solid $border-color;
   overflow-y: auto;
   transition: width 0.2s ease;
 }

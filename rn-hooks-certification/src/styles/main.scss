@@ -55,21 +55,22 @@ body {
 }
 
 .app-sidebar__header {
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   margin-bottom: 0.5rem;
 }
 
 .app-sidebar__toggle {
-  display: block;
-  width: 100%;
-  padding: 0.4rem;
-  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+  padding: 0.3rem 0.5rem;
   background: transparent;
   color: $text-secondary;
   border: 1px solid $border-color;
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.75rem;
+  line-height: 1;
   transition: color 0.15s;
 
   &:hover {

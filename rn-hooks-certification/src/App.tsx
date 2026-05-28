@@ -68,18 +68,13 @@ function App() {
     <div className="app-layout">
       <nav className={`app-sidebar ${sidebarOpen ? '' : 'app-sidebar--collapsed'}`}>
         <div className="app-sidebar__header">
-          {sidebarOpen && (
-            <>
-              <h2 className="app-sidebar__title">
-                🎓 RN Certification
-                <br />
-                <span className="app-sidebar__subtitle">Chapter 7: Hooks</span>
-              </h2>
-              <p className="text-light small mb-3">
-                Temas alineados con el syllabus oficial de la certificación.
-              </p>
-            </>
-          )}
+          {sidebarOpen ? (
+            <h2 className="app-sidebar__title">
+              🎓 RN Certification
+              <br />
+              <span className="app-sidebar__subtitle">Chapter 7: Hooks</span>
+            </h2>
+          ) : null}
           <button
             className="app-sidebar__toggle"
             onClick={() => setSidebarOpen((o) => !o)}

@@ -238,7 +238,7 @@ body {
 }
 
 .text-muted {
-  color: $text-secondary;
+  color: $text-secondary !important;
 }
 
 .text-warning {
@@ -271,7 +271,7 @@ body {
 }
 
 .message-log {
-  max-height: 120px;
+  max-height: 200px;
   overflow: auto;
   background: $bg-secondary;
   padding: 0.5rem;

@@ -1,68 +1,61 @@
 import { useState } from 'react'
-import ReglasFundamentales from './examples/01-reglas-fundamentales'
-import UseStateDemo from './examples/02-useState'
-import UseEffectDemo from './examples/03-useEffect'
-import OptimizacionRendimiento from './examples/04-useMemo-useCallback'
-import UseRefDemo from './examples/05-useRef'
-import UseContextDemo from './examples/06-useContext'
-import UseReducerDemo from './examples/07-useReducer'
-import CustomHooksDemo from './examples/08-custom-hooks'
-import TipsCertificacion from './examples/09-tips-certificacion'
+import SynchronizingWithEffects from './examples/01-synchronizing-with-effects'
+import ReferencingValuesWithRefs from './examples/02-referencing-values-with-refs'
+import ManipulatingDOMWithRefs from './examples/03-manipulating-dom-with-refs'
+import YouMightNotNeedAnEffect from './examples/04-you-might-not-need-an-effect'
+import LifecycleOfReactiveEffects from './examples/05-lifecycle-of-reactive-effects'
+import SeparatingEventsFromEffects from './examples/06-separating-events-from-effects'
+import RemovingEffectDependencies from './examples/07-removing-effect-dependencies'
+import ReusingLogicWithCustomHooks from './examples/08-reusing-logic-with-custom-hooks'
 
 const temas = [
   {
     id: 1,
-    title: 'Hooks',
-    summary: 'Reglas y uso correcto de los Hooks en componentes funcionales.',
-    component: ReglasFundamentales,
+    title: 'Synchronizing with Effects',
+    summary: 'useEffect, sistemas externos, suscripciones, cleanup.',
+    component: SynchronizingWithEffects,
   },
   {
     id: 2,
-    title: 'Sincronizando con useEffect',
-    summary: 'Efectos secundarios, dependencias, montaje y limpieza.',
-    component: UseEffectDemo,
+    title: 'Referencing Values with Refs',
+    summary: 'useRef para mantener valores sin causar re-renders.',
+    component: ReferencingValuesWithRefs,
   },
   {
     id: 3,
-    title: 'useState',
-    summary: 'Estado local, actualizaciones funcionales y estado inicial lazy.',
-    component: UseStateDemo,
+    title: 'Manipulating the DOM with Refs',
+    summary: 'useRef para acceder y manipular elementos del DOM.',
+    component: ManipulatingDOMWithRefs,
   },
   {
     id: 4,
-    title: 'useMemo & useCallback',
-    summary: 'Optimización de rendimiento y memoización de valores y callbacks.',
-    component: OptimizacionRendimiento,
+    title: 'You Might Not Need an Effect',
+    summary: 'Cuándo evitar Effects y derivar estado durante el rendering.',
+    component: YouMightNotNeedAnEffect,
   },
   {
     id: 5,
-    title: 'useRef',
-    summary: 'Referencias persistentes, acceso a nodos y valores sin re-render.',
-    component: UseRefDemo,
+    title: 'Lifecycle of Reactive Effects',
+    summary: 'Ciclo de vida del Effect, dependencias y re-sincronización.',
+    component: LifecycleOfReactiveEffects,
   },
   {
     id: 6,
-    title: 'useContext',
-    summary: 'Estado global compartido sin prop drilling.',
-    component: UseContextDemo,
+    title: 'Separating Events from Effects',
+    summary: 'Lógica reactiva vs no-reactiva, event handlers vs Effects.',
+    component: SeparatingEventsFromEffects,
   },
   {
     id: 7,
-    title: 'useReducer',
-    summary: 'Gestión de estado compleja con acciones y reducers.',
-    component: UseReducerDemo,
+    title: 'Removing Effect Dependencies',
+    summary: 'Evitar dependencias innecesarias y loops infinitos.',
+    component: RemovingEffectDependencies,
   },
   {
     id: 8,
-    title: 'Custom Hooks',
-    summary: 'Reutilización de lógica y abstracción de comportamiento.',
-    component: CustomHooksDemo,
-  },
-  {
-    id: 9,
-    title: 'Tips de Certificación',
-    summary: 'Errores frecuentes, closure stale, lazy state e infinite loops.',
-    component: TipsCertificacion,
+    title: 'Reusing Logic with Custom Hooks',
+    summary: 'Extraer y compartir lógica con estado entre componentes.',
+    component: ReusingLogicWithCustomHooks,
   },
 ]
 
@@ -76,11 +69,11 @@ function App() {
         <h2 className="app-sidebar__title">
           🎓 RN Certification
           <br />
-          <span className="app-sidebar__subtitle">Temario: Hooks</span>
+          <span className="app-sidebar__subtitle">Chapter 7: Hooks</span>
         </h2>
 
         <p className="text-light small mb-3">
-          Temas organizados exactamente por bloque del syllabus.
+          Temas alineados con el syllabus oficial de la certificación.
         </p>
 
         {temas.map((tema, index) => (

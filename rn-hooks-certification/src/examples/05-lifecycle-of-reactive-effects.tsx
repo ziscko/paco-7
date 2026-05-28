@@ -46,16 +46,7 @@ function ChatRoom({ roomId }: { roomId: string }) {
           onChange={(e) => setServerUrl(e.target.value)}
         />
       </div>
-      <div
-        style={{
-          maxHeight: '120px',
-          overflow: 'auto',
-          background: '#0d1117',
-          padding: '0.5rem',
-          borderRadius: '4px',
-          fontSize: '0.8rem',
-        }}
-      >
+      <div className="message-log">
         {messages.map((msg, i) => (
           <div key={i}>{msg}</div>
         ))}

@@ -63,27 +63,14 @@ function ScrollToDemo() {
           </button>
         ))}
       </div>
-      <div
-        style={{
-          maxHeight: '150px',
-          overflow: 'auto',
-          border: '1px solid #30363d',
-          borderRadius: '4px',
-          padding: '0.5rem',
-        }}
-      >
+      <div className="scroll-container">
         {['Section A', 'Section B', 'Section C'].map((label, i) => (
           <div
             key={i}
             ref={(el) => {
               sectionRefs.current[i] = el
             }}
-            style={{
-              padding: '2rem',
-              marginBottom: '0.5rem',
-              background: '#21262d',
-              borderRadius: '4px',
-            }}
+            className="scroll-section"
           >
             <strong>{label}</strong>
             <p className="mb-0">
@@ -112,17 +99,7 @@ function MeasureDemo() {
   return (
     <div className="example-card">
       <h3>Medir Tamaño de Elementos</h3>
-      <div
-        ref={boxRef}
-        style={{
-          padding: '1.5rem',
-          background: '#21262d',
-          borderRadius: '4px',
-          marginBottom: '0.5rem',
-          resize: 'both',
-          overflow: 'auto',
-        }}
-      >
+      <div ref={boxRef} className="resizable-box">
         Redimensióname (arrastra la esquina inferior derecha)
       </div>
       <button className="btn btn-outline-info btn-sm" onClick={measure}>

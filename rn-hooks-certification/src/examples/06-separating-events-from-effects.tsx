@@ -49,17 +49,7 @@ function ChatRoom({ roomId }: { roomId: string }) {
 
   return (
     <div>
-      <div
-        style={{
-          maxHeight: '120px',
-          overflow: 'auto',
-          background: '#0d1117',
-          padding: '0.5rem',
-          borderRadius: '4px',
-          fontSize: '0.8rem',
-          marginBottom: '0.5rem',
-        }}
-      >
+      <div className="message-log">
         {messages.map((msg, i) => (
           <div key={i}>{msg}</div>
         ))}

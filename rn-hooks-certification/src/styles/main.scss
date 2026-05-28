@@ -244,3 +244,38 @@ body {
 .text-warning {
   color: $warning;
 }
+
+// ─── Componentes de demo ─────────────────────────────────────
+.scroll-container {
+  max-height: 150px;
+  overflow: auto;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.scroll-section {
+  padding: 2rem;
+  margin-bottom: 0.5rem;
+  background: $bg-card;
+  border-radius: 4px;
+}
+
+.resizable-box {
+  padding: 1.5rem;
+  background: $bg-card;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  resize: both;
+  overflow: auto;
+}
+
+.message-log {
+  max-height: 120px;
+  overflow: auto;
+  background: $bg-secondary;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}

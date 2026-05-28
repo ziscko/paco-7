@@ -46,6 +46,40 @@ body {
   background: $bg-secondary;
   border-right: 1px solid $border-color;
   overflow-y: auto;
+  transition: width 0.2s ease;
+}
+
+.app-sidebar--collapsed {
+  width: 56px;
+  padding: 0.5rem;
+}
+
+.app-sidebar__header {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.app-sidebar__toggle {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+  background: transparent;
+  color: $text-secondary;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: color 0.15s;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+.app-sidebar__num {
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .app-sidebar__title {
@@ -81,6 +115,11 @@ body {
     background: rgba($accent-hover, 0.2);
     color: $accent;
     border-color: $accent-hover;
+  }
+
+  .app-sidebar--collapsed & {
+    padding: 0.5rem;
+    text-align: center;
   }
 }
 

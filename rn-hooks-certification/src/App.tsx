@@ -61,31 +61,51 @@ const temas = [
 
 function App() {
   const [activeTema, setActiveTema] = useState(0)
+  const [sidebarOpen, setSidebarOpen] = useState(true)
   const ActiveComponent = temas[activeTema]?.component
 
   return (
     <div className="app-layout">
-      <nav className="app-sidebar">
-        <h2 className="app-sidebar__title">
-          🎓 RN Certification
-          <br />
-          <span className="app-sidebar__subtitle">Chapter 7: Hooks</span>
-        </h2>
-
-        <p className="text-light small mb-3">
-          Temas alineados con el syllabus oficial de la certificación.
-        </p>
+      <nav className={`app-sidebar ${sidebarOpen ? '' : 'app-sidebar--collapsed'}`}>
+        <div className="app-sidebar__header">
+          {sidebarOpen && (
+            <>
+              <h2 className="app-sidebar__title">
+                🎓 RN Certification
+                <br />
+                <span className="app-sidebar__subtitle">Chapter 7: Hooks</span>
+              </h2>
+              <p className="text-light small mb-3">
+                Temas alineados con el syllabus oficial de la certificación.
+              </p>
+            </>
+          )}
+          <button
+            className="app-sidebar__toggle"
+            onClick={() => setSidebarOpen((o) => !o)}
+            title={sidebarOpen ? 'Contraer' : 'Expandir'}
+          >
+            {sidebarOpen ? '◀' : '▶'}
+          </button>
+        </div>
 
         {temas.map((tema, index) => (
           <button
             key={tema.id}
             onClick={() => setActiveTema(index)}
             className={`app-sidebar__btn ${activeTema === index ? 'app-sidebar__btn--active' : ''}`}
+            title={!sidebarOpen ? tema.title : undefined}
           >
-            <span className="d-block">
-              {tema.id}. {tema.title}
-            </span>
-            <small className="d-block text-muted mt-1">{tema.summary}</small>
+            {sidebarOpen ? (
+              <>
+                <span className="d-block">
+                  {tema.id}. {tema.title}
+                </span>
+                <small className="d-block text-muted mt-1">{tema.summary}</small>
+              </>
+            ) : (
+              <span className="app-sidebar__num">{tema.id}</span>
+            )}
           </button>
         ))}
       </nav>

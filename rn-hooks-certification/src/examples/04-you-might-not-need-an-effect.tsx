@@ -226,9 +226,30 @@ function TodoList({ todos }) {
         </pre>
       </div>
 
-      <h3 className="mb-3">Comparación</h3>
-      <TodoListBad todos={sampleTodos} />
-      <TodoListGood todos={sampleTodos} />
+      <div className="example-card mb-3">
+        <h3>¿Por qué el código con useEffect es una mala práctica?</h3>
+        <p>
+          El primer código hace que la aplicación trabaje el doble. Cuando los datos cambian, React
+          primero dibuja la pantalla con la lista vieja, luego se da cuenta de que hay un{' '}
+          <code>useEffect</code>, calcula los datos nuevos, actualiza el estado y vuelve a borrar y
+          redibujar la pantalla por segunda vez. Este doble renderizado hace que la página se vuelva
+          lenta de forma totalmente innecesaria.
+        </p>
+        <p>
+          El segundo código usa lo que se llama <strong>Estado Derivado</strong>. Como ya tienes la
+          lista original en las props (<code>todos</code>), no necesitas crear un estado nuevo ni un
+          efecto para limpiarla. Simplemente haces el <code>.filter()</code> directamente en el
+          cuerpo de la función. De esta forma, React calcula los datos filtrados y dibuja la
+          pantalla final de un solo golpe. Ahorras código, evitas errores de sincronización y tu
+          aplicación va mucho más rápido.
+        </p>
+        <p className="mb-0">
+          A esto se le llama <strong>Estado Derivado (Derived State)</strong>. En el ejemplo, como
+          ya tienes la prop <code>todos</code>, no necesitas crear un estado duplicado llamado{' '}
+          <code>visibleTodos</code>. Simplemente calculas la diferencia sobre la marcha durante el
+          renderizado.
+        </p>
+      </div>
 
       <h3 className="mb-3 mt-4">Demo interactiva</h3>
       <InteractiveDemo />

@@ -1,6 +1,6 @@
 /**
  * ============================================
- * TEMA 3: Efectos con useEffect
+ * TEMA 2: Sincronizando con useEffect
  * ============================================
  *
  * useEffect permite ejecutar efectos secundarios en componentes funcionales.
@@ -163,7 +163,7 @@ useEffect(() => {
 export default function UseEffectDemo() {
   return (
     <div>
-      <h2 className="mb-4">Tema 3: Efectos con useEffect</h2>
+      <h2 className="mb-4">Tema 2: Sincronizando con useEffect</h2>
 
       <div className="table-responsive mb-4">
         <table className="table table-dark table-bordered">

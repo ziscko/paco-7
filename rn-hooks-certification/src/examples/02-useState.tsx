@@ -1,6 +1,6 @@
 /**
  * ============================================
- * TEMA 2: Manejo de Estado con useState
+ * TEMA 3: useState
  * ============================================
  *
  * useState añade estado local a componentes funcionales de forma sencilla.
@@ -139,7 +139,7 @@ const [items, setItems] = useState(() => {
 export default function UseStateDemo() {
   return (
     <div>
-      <h2 className="mb-4">Tema 2: Manejo de Estado con useState</h2>
+      <h2 className="mb-4">Tema 3: useState</h2>
       <p className="mb-4">Añade estado local a componentes funcionales de forma sencilla.</p>
 
       <div className="d-flex flex-column gap-3">

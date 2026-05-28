@@ -1,6 +1,6 @@
 /**
  * ============================================
- * TEMA 1: Reglas Fundamentales de los Hooks
+ * TEMA 1: Hooks
  * ============================================
  *
  * Las reglas de los Hooks son esenciales para que React
@@ -128,7 +128,7 @@ function HookEnBucle() {
 export default function ReglasFundamentales() {
   return (
     <div>
-      <h2 className="mb-4">Tema 1: Reglas Fundamentales de los Hooks</h2>
+      <h2 className="mb-4">Tema 1: Hooks</h2>
 
       <div className="example-card mb-3">
         <h3>Resumen de Reglas</h3>

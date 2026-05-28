@@ -2,9 +2,10 @@
 @use 'bootstrap/scss/bootstrap';
 
 // ─── Variables del proyecto ───────────────────────────────────
-$bg-primary: #10161e;
-$bg-secondary: #0d1117;
-$bg-card: #21262d;
+$bg-primary: #1e1e2f;
+$bg-secondary: #0000001c;
+$bg-card: #0000001c;
+$bg-code: #00000047;
 $border-color: #30363d;
 $text-primary: #c9d1d9;
 $text-secondary: #8b949e;
@@ -19,7 +20,6 @@ $purple: #9c27b0;
 html,
 body,
 #root {
-  height: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -32,6 +32,11 @@ body {
     system-ui,
     -apple-system,
     sans-serif;
+  background: linear-gradient(to bottom, #12253f 0%, #202126 100%);
+}
+
+* {
+  font-family: inherit;
 }
 
 // ─── Layout ───────────────────────────────────────────────────
@@ -126,7 +131,6 @@ body {
 .app-content {
   flex: 1;
   padding: 2rem;
-  background: $bg-primary;
   color: $text-primary;
   overflow-y: auto;
 }
@@ -134,7 +138,7 @@ body {
 // ─── Componentes reutilizables ────────────────────────────────
 .example-card {
   padding: 1rem;
-  border: 1px solid $border-color;
+  background: $bg-card;
   border-radius: 8px;
   margin-bottom: 1rem;
 
@@ -161,7 +165,7 @@ body {
 
 .code-block {
   font-size: 0.85rem;
-  background: $bg-secondary;
+  background: $bg-code;
   color: $text-primary;
   padding: 0.75rem;
   border-radius: 4px;

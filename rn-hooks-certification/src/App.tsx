@@ -8,7 +8,7 @@ import SeparatingEventsFromEffects from './examples/06-separating-events-from-ef
 import RemovingEffectDependencies from './examples/07-removing-effect-dependencies'
 import ReusingLogicWithCustomHooks from './examples/08-reusing-logic-with-custom-hooks'
 
-const temas = [
+const topics = [
   {
     id: 1,
     title: 'Synchronizing with Effects',
@@ -60,9 +60,9 @@ const temas = [
 ]
 
 function App() {
-  const [activeTema, setActiveTema] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0)
   const [sidebarOpen, setSidebarOpen] = useState(true)
-  const ActiveComponent = temas[activeTema]?.component
+  const ActiveComponent = topics[activeIndex]?.component
 
   return (
     <div className="app-layout">
@@ -89,22 +89,22 @@ function App() {
           </button>
         </div>
 
-        {temas.map((tema, index) => (
+        {topics.map((topic, index) => (
           <button
-            key={tema.id}
-            onClick={() => setActiveTema(index)}
-            className={`app-sidebar__btn ${activeTema === index ? 'app-sidebar__btn--active' : ''}`}
-            title={!sidebarOpen ? tema.title : undefined}
+            key={topic.id}
+            onClick={() => setActiveIndex(index)}
+            className={`app-sidebar__btn ${activeIndex === index ? 'app-sidebar__btn--active' : ''}`}
+            title={!sidebarOpen ? topic.title : undefined}
           >
             {sidebarOpen ? (
               <>
                 <span className="d-block">
-                  {tema.id}. {tema.title}
+                  {topic.id}. {topic.title}
                 </span>
-                <small className="d-block text-muted mt-1">{tema.summary}</small>
+                <small className="d-block text-muted mt-1">{topic.summary}</small>
               </>
             ) : (
-              <span className="app-sidebar__num">{tema.id}</span>
+              <span className="app-sidebar__num">{topic.id}</span>
             )}
           </button>
         ))}

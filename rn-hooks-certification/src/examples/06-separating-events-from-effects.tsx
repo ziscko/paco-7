@@ -20,13 +20,14 @@
  * - React Documentation > Separating Events from Effects
  */
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 // ─── Ejemplo: ChatRoom ────────────────────────────────────────
 
 function ChatRoom({ roomId }: { roomId: string }) {
   const [message, setMessage] = useState('') // Reactive value
   const [messages, setMessages] = useState<string[]>([])
+  const logRef = useRef<HTMLDivElement>(null)
 
   // Event handler - NOT reactive
   function handleSendClick() {
@@ -47,9 +48,15 @@ function ChatRoom({ roomId }: { roomId: string }) {
     }
   }, [roomId]) // Re-runs when roomId changes
 
+  useEffect(() => {
+    if (logRef.current) {
+      logRef.current.scrollTop = logRef.current.scrollHeight
+    }
+  }, [messages])
+
   return (
     <div>
-      <div className="message-log">
+      <div className="message-log" ref={logRef}>
         {messages.map((msg, i) => (
           <div key={i}>{msg}</div>
         ))}
@@ -63,8 +70,17 @@ function ChatRoom({ roomId }: { roomId: string }) {
           onKeyDown={(e) => e.key === 'Enter' && handleSendClick()}
           placeholder="Escribe un mensaje..."
         />
-        <button className="btn btn-outline-info btn-sm" onClick={handleSendClick}>
+        <button
+          className="btn btn-outline-info btn-sm"
+          onClick={handleSendClick}
+          disabled={message.trim() === ''}
+        >
           Enviar
+        </button>
+      </div>
+      <div className="d-flex justify-content-center">
+        <button className="btn btn-outline-secondary btn-sm my-2" onClick={() => setMessages([])}>
+          Clear log
         </button>
       </div>
     </div>
@@ -173,21 +189,11 @@ export default function SeparatingEventsFromEffects() {
           como una prop o una variable de estado, es diferente de lo que era durante el último
           render.
         </p>
-        <p>
-          En esta lección, aprenderás la diferencia entre lógica reactiva y no-reactiva, y cómo
-          identificar qué valores deben disparar la re-ejecución de un Effect.
-        </p>
-        <div className="example-card example-card--warning mt-2 mb-0">
-          <p className="mb-0">
-            ⚠️ <strong>IMPORTANTE:</strong> Omite las secciones de useEffectEvent en la
-            documentación - es una API experimental y no se cubrirá en el examen. Enfócate solo en
-            entender la lógica reactiva vs no-reactiva.
-          </p>
-        </div>
         <p className="text-muted small mt-2 mb-0">
           Leer: React Documentation {'>'} Separating Events from Effects
         </p>
       </div>
+      <ComparisonTable />
 
       <div className="example-card mb-3">
         <h3>Ejemplo</h3>
@@ -212,7 +218,7 @@ export default function SeparatingEventsFromEffects() {
 
       <h3 className="mb-3">Demo interactiva</h3>
       <EventVsEffectDemo />
-      <ComparisonTable />
+      <div className="py-5"></div>
     </div>
   )
 }

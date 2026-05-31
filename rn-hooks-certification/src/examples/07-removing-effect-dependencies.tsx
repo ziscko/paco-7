@@ -83,7 +83,6 @@ function createConnection(options: { serverUrl: string; roomId: string }) {
 
 function InteractiveDemo() {
   const [roomId, setRoomId] = useState('general')
-  const [renderCount, setRenderCount] = useState(0)
 
   return (
     <div className="example-card">
@@ -101,12 +100,6 @@ function InteractiveDemo() {
             #{room}
           </button>
         ))}
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          onClick={() => setRenderCount((c) => c + 1)}
-        >
-          Forzar re-render ({renderCount})
-        </button>
       </div>
       <ChatRoomGood roomId={roomId} />
     </div>

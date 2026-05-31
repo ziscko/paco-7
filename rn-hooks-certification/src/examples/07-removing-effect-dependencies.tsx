@@ -23,6 +23,7 @@
  */
 
 import { useState, useEffect } from 'react'
+import CodeBlock from '../components/CodeBlock'
 
 // ─── Ejemplo: Object dependency problem ───────────────────────
 
@@ -140,7 +141,7 @@ export default function RemovingEffectDependencies() {
 
       <div className="example-card mb-3">
         <h3>Ejemplo</h3>
-        <pre className="code-block">
+        <CodeBlock>
           {`function ChatRoom({ roomId }) {
   const serverUrl = 'https://localhost:1234';
 
@@ -161,12 +162,12 @@ export default function RemovingEffectDependencies() {
     return () => connection.disconnect();
   }, [roomId, serverUrl]); // Only primitive values as dependencies
 }`}
-        </pre>
+        </CodeBlock>
       </div>
 
       <div className="example-card example-card--danger mb-3">
         <h3>❌ Problema: Objeto como dependencia</h3>
-        <pre className="code-block">
+        <CodeBlock>
           {`// Object is recreated on every render → new reference → Effect re-runs
 const options = { serverUrl, roomId };
 
@@ -175,12 +176,12 @@ useEffect(() => {
   connection.connect();
   return () => connection.disconnect();
 }, [options]); // ❌ options is a new object every render!`}
-        </pre>
+        </CodeBlock>
       </div>
 
       <div className="example-card example-card--success mb-3">
         <h3>✅ Solución: Mover objeto dentro del Effect</h3>
-        <pre className="code-block">
+        <CodeBlock>
           {`useEffect(() => {
   // ✅ Object created inside Effect - not a dependency
   const options = { serverUrl, roomId };
@@ -188,7 +189,7 @@ useEffect(() => {
   connection.connect();
   return () => connection.disconnect();
 }, [roomId, serverUrl]); // Only primitive values as dependencies`}
-        </pre>
+        </CodeBlock>
       </div>
 
       <h3 className="mb-3">Demo interactiva</h3>

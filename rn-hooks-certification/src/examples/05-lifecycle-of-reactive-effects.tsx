@@ -16,6 +16,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react'
+import CodeBlock from '../components/CodeBlock'
 
 // ─── Ejemplo: ChatRoom ────────────────────────────────────────
 
@@ -110,14 +111,14 @@ function MissingDependencyDemo() {
   return (
     <div className="example-card example-card--danger">
       <h3>❌ Dependencia faltante</h3>
-      <pre className="code-block">
+      <CodeBlock>
         {`// ❌ Missing dependency - Effect won't re-synchronize when serverUrl changes
 useEffect(() => {
   const connection = createConnection(serverUrl, roomId);
   connection.connect();
   return () => connection.disconnect();
 }, [roomId]); // serverUrl is missing!`}
-      </pre>
+      </CodeBlock>
       <p className="text-muted small mt-2">
         Si <code>serverUrl</code> cambia, el Effect no se re-ejecutará y permanecerá conectado al
         servidor anterior.
@@ -130,14 +131,14 @@ function CorrectDependenciesDemo() {
   return (
     <div className="example-card example-card--success">
       <h3>✅ Dependencias correctas</h3>
-      <pre className="code-block">
+      <CodeBlock>
         {`// ✅ Correct dependencies - Effect will re-synchronize when either changes
 useEffect(() => {
   const connection = createConnection(serverUrl, roomId);
   connection.connect();
   return () => connection.disconnect();
 }, [serverUrl, roomId]); // Both dependencies listed`}
-      </pre>
+      </CodeBlock>
       <p className="text-muted small mt-2">
         El Effect se re-sincroniza cada vez que <code>serverUrl</code> o <code>roomId</code>{' '}
         cambian.
@@ -169,7 +170,7 @@ export default function LifecycleOfReactiveEffects() {
 
       <div className="example-card mb-3">
         <h3>Ejemplo</h3>
-        <pre className="code-block">
+        <CodeBlock>
           {`function ChatRoom({ roomId }) {
   const [serverUrl, setServerUrl] = useState('https://localhost:1234');
 
@@ -190,7 +191,7 @@ export default function LifecycleOfReactiveEffects() {
   // ✅ Correct dependencies - Effect will re-synchronize when either changes
   // }, [serverUrl, roomId]);
 }`}
-        </pre>
+        </CodeBlock>
       </div>
 
       <h3 className="mb-3">Demo interactiva</h3>

@@ -15,6 +15,7 @@
  */
 
 import { useState, useEffect } from 'react'
+import CodeBlock from '../components/CodeBlock'
 
 // ─── Ejemplo: WeatherWidget ───────────────────────────────────
 
@@ -141,8 +142,7 @@ export default function SynchronizingWithEffects() {
 
       <div className="example-card mb-3">
         <h3>Ejemplo</h3>
-        <pre className="code-block">
-          {`import { useState, useEffect } from 'react';
+        <CodeBlock>{`import { useState, useEffect } from 'react';
 
 function WeatherWidget() {
   const [location, setLocation] = useState('London');
@@ -163,8 +163,7 @@ function WeatherWidget() {
   return (
     ...
   );
-}`}
-        </pre>
+}`}</CodeBlock>
       </div>
 
       <h3 className="mb-3">Demo interactiva</h3>

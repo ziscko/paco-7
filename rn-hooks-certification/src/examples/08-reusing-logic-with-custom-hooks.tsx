@@ -25,6 +25,7 @@
  */
 
 import { useState, useEffect } from 'react'
+import CodeBlock from '../components/CodeBlock'
 
 // ─── Ejemplo: useOnlineStatus ─────────────────────────────────
 
@@ -165,7 +166,7 @@ function FetchDemo() {
           ✅ {data.name} ({data.email})
         </p>
       )}
-      <pre className="code-block mt-3">
+      <CodeBlock>
         {`function useFetch<T>(url: string) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
@@ -183,7 +184,7 @@ function FetchDemo() {
 
   return { data, loading, error };
 }`}
-      </pre>
+      </CodeBlock>
     </div>
   )
 }
@@ -224,7 +225,7 @@ export default function ReusingLogicWithCustomHooks() {
 
       <div className="example-card mb-3">
         <h3>Ejemplo</h3>
-        <pre className="code-block">
+        <CodeBlock>
           {`// ❌ Duplicated logic
 function StatusBar() {
   const [isOnline, setIsOnline] = useState(true);
@@ -254,7 +255,7 @@ function StatusBar() {
   const isOnline = useOnlineStatus();
   return <h1>{isOnline ? 'Online' : 'Offline'}</h1>;
 }`}
-        </pre>
+        </CodeBlock>
       </div>
 
       <h3 className="mb-3">Demo interactiva</h3>

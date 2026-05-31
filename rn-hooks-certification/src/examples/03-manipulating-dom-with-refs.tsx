@@ -14,6 +14,7 @@
  */
 
 import { useRef, useState } from 'react'
+import CodeBlock from '../components/CodeBlock'
 
 // ─── Ejemplo: TextInputWithFocusButton ────────────────────────
 
@@ -137,7 +138,7 @@ export default function ManipulatingDOMWithRefs() {
 
       <div className="example-card mb-3">
         <h3>Ejemplo</h3>
-        <pre className="code-block">
+        <CodeBlock>
           {`import { useRef } from 'react';
 
 function TextInputWithFocusButton() {
@@ -156,7 +157,7 @@ function TextInputWithFocusButton() {
     </div>
   );
 }`}
-        </pre>
+        </CodeBlock>
       </div>
 
       <h3 className="mb-3">Demo interactiva</h3>

@@ -16,6 +16,7 @@
  */
 
 import { useState, useMemo } from 'react'
+import CodeBlock from '../components/CodeBlock'
 
 // ─── Ejemplo: Unnecessary Effect - transforming data ──────────
 
@@ -41,7 +42,7 @@ function TodoListBad({ todos }: { todos: Todo[] }) {
   return (
     <div className="example-card example-card--danger">
       <h3>❌ Effect innecesario - transformando datos</h3>
-      <pre className="code-block">
+      <CodeBlock>
         {`function TodoList({ todos }) {
   const [visibleTodos, setVisibleTodos] = useState([]);
 
@@ -49,7 +50,7 @@ function TodoListBad({ todos }: { todos: Todo[] }) {
     setVisibleTodos(todos.filter(todo => !todo.completed));
   }, [todos]);
 }`}
-      </pre>
+      </CodeBlock>
       <p className="text-muted small mt-2">
         Esto causa un render extra: primero con datos obsoletos, luego con datos filtrados.
       </p>
@@ -64,11 +65,11 @@ function TodoListGood({ todos }: { todos: Todo[] }) {
   return (
     <div className="example-card example-card--success">
       <h3>✅ Mejor: derivar estado durante el rendering</h3>
-      <pre className="code-block">
+      <CodeBlock>
         {`function TodoList({ todos }) {
   const visibleTodos = todos.filter(todo => !todo.completed);
 }`}
-      </pre>
+      </CodeBlock>
       <p className="mt-2">
         Todos visibles: <strong>{visibleTodos.length}</strong>
       </p>
@@ -165,7 +166,7 @@ function InteractiveDemo() {
         ))}
       </ul>
 
-      <pre className="code-block mt-3">
+      <CodeBlock>
         {`// ✅ Derive state during rendering
 const filteredTodos = useMemo(() => {
   switch (filter) {
@@ -176,7 +177,7 @@ const filteredTodos = useMemo(() => {
 }, [todos, filter]);
 
 // No useEffect needed! The value is computed directly.`}
-      </pre>
+      </CodeBlock>
     </div>
   )
 }
@@ -209,7 +210,7 @@ export default function YouMightNotNeedAnEffect() {
 
       <div className="example-card mb-3">
         <h3>Ejemplo</h3>
-        <pre className="code-block">
+        <CodeBlock>
           {`// ❌ Unnecessary Effect - transforming data
 function TodoList({ todos }) {
   const [visibleTodos, setVisibleTodos] = useState([]);
@@ -223,7 +224,7 @@ function TodoList({ todos }) {
 function TodoList({ todos }) {
   const visibleTodos = todos.filter(todo => !todo.completed);
 }`}
-        </pre>
+        </CodeBlock>
       </div>
 
       <div className="example-card mb-3">

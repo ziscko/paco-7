@@ -8,6 +8,7 @@ import LifecycleOfReactiveEffects from './examples/05-lifecycle-of-reactive-effe
 import SeparatingEventsFromEffects from './examples/06-separating-events-from-effects'
 import RemovingEffectDependencies from './examples/07-removing-effect-dependencies'
 import ReusingLogicWithCustomHooks from './examples/08-reusing-logic-with-custom-hooks'
+import OptimizingWithUseCallback from './examples/09-optimizing-with-useCallback'
 
 const topics = [
   {
@@ -65,6 +66,13 @@ const topics = [
     title: 'Reusing Logic with Custom Hooks',
     summary: 'Extraer y compartir lógica con estado entre componentes.',
     component: ReusingLogicWithCustomHooks,
+  },
+  {
+    id: 9,
+    slug: 'topic-9',
+    title: 'Optimizing with useCallback',
+    summary: 'Memorizar funciones para evitar renders y efectos innecesarios.',
+    component: OptimizingWithUseCallback,
   },
 ]
 

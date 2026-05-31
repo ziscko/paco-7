@@ -21,6 +21,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react'
+import CodeBlock from '../components/CodeBlock'
 
 // ─── Ejemplo: ChatRoom ────────────────────────────────────────
 
@@ -197,7 +198,7 @@ export default function SeparatingEventsFromEffects() {
 
       <div className="example-card mb-3">
         <h3>Ejemplo</h3>
-        <pre className="code-block">
+        <CodeBlock>
           {`function ChatRoom({ roomId }) {
   const [message, setMessage] = useState(''); // Reactive value
 
@@ -213,7 +214,7 @@ export default function SeparatingEventsFromEffects() {
     return () => connection.disconnect();
   }, [roomId]); // Re-runs when roomId changes
 }`}
-        </pre>
+        </CodeBlock>
       </div>
 
       <h3 className="mb-3">Demo interactiva</h3>

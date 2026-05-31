@@ -14,6 +14,7 @@
  */
 
 import { useState, useRef } from 'react'
+import CodeBlock from '../components/CodeBlock'
 
 // ─── Ejemplo: Counter con clickCountRef ───────────────────────
 
@@ -95,7 +96,7 @@ function Stopwatch() {
           Reset
         </button>
       </div>
-      <pre className="code-block mt-3">
+      <CodeBlock>
         {`// useRef para guardar el interval ID
 const intervalRef = useRef(null);
 
@@ -104,7 +105,7 @@ intervalRef.current = setInterval(...);
 
 // Acceder al valor para limpiar
 clearInterval(intervalRef.current);`}
-      </pre>
+      </CodeBlock>
     </div>
   )
 }
@@ -131,7 +132,7 @@ export default function ReferencingValuesWithRefs() {
 
       <div className="example-card mb-3">
         <h3>Ejemplo</h3>
-        <pre className="code-block">
+        <CodeBlock>
           {`import { useRef, useState } from 'react';
 
 function Counter() {
@@ -157,7 +158,7 @@ function Counter() {
     </div>
   );
 }`}
-        </pre>
+        </CodeBlock>
       </div>
 
       <h3 className="mb-3">Demo interactiva</h3>

@@ -7,8 +7,6 @@
  * ejemplo corto que te ayuda a recordarlos.
  */
 
-import CodeBlock from '../components/CodeBlock'
-
 function HooksSummaryTable() {
   return (
     <div className="example-card">

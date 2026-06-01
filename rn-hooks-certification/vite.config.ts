@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/paco-7/',
   plugins: [react()],
   server: {
     port: 33999,
@@ -11,7 +12,6 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler',
         silenceDeprecations: ['import', 'global-builtin', 'color-functions', 'if-function'],
       },
     },

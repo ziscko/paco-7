@@ -6,7 +6,7 @@ import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/paco-7">
       <Routes>
         <Route path="/:slug" element={<App />} />
         <Route path="*" element={<Navigate to="/topic-1" replace />} />

@@ -38,6 +38,8 @@ function TodoListBad({ todos }: { todos: Todo[] }) {
   // Simulating the bad pattern for display
   // (not actually running the effect to avoid confusion)
   void setVisibleTodos
+  void visibleTodos
+  void todos
 
   return (
     <div className="example-card example-card--danger">
@@ -253,6 +255,8 @@ function TodoList({ todos }) {
       </div>
 
       <h3 className="mb-3 mt-4">Demo interactiva</h3>
+      <TodoListBad todos={sampleTodos} />
+      <TodoListGood todos={sampleTodos} />
       <InteractiveDemo />
     </div>
   )

@@ -163,6 +163,11 @@ body {
   }
 }
 
+.table-highlight > td:first-child {
+  color: $accent;
+  font-weight: 600;
+}
+
 .code-block {
   font-size: 0.85rem;
   background: $bg-code;

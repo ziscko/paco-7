@@ -9,6 +9,7 @@ import SeparatingEventsFromEffects from './examples/06-separating-events-from-ef
 import RemovingEffectDependencies from './examples/07-removing-effect-dependencies'
 import ReusingLogicWithCustomHooks from './examples/08-reusing-logic-with-custom-hooks'
 import OptimizingWithUseCallback from './examples/09-optimizing-with-useCallback'
+import HooksSummary from './examples/10-hooks-summary'
 
 const topics = [
   {
@@ -73,6 +74,13 @@ const topics = [
     title: 'Optimizing with useCallback',
     summary: 'Memorizar funciones para evitar renders y efectos innecesarios.',
     component: OptimizingWithUseCallback,
+  },
+  {
+    id: 10,
+    slug: 'topic-10',
+    title: 'Hooks Summary',
+    summary: 'Tabla resumen de hooks con ejemplos muy cortos.',
+    component: HooksSummary,
   },
 ]
 

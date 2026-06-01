@@ -96,99 +96,6 @@ function SaveButton() {
 // Suppress unused warning
 void StatusBarBad
 
-// ─── Custom Hook adicional: useFetch ──────────────────────────
-
-function useFetch<T>(url: string) {
-  const [data, setData] = useState<T | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    let cancelled = false
-    setLoading(true)
-    setError(null)
-
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`)
-        return res.json()
-      })
-      .then((json) => {
-        if (!cancelled) {
-          setData(json)
-          setLoading(false)
-        }
-      })
-      .catch((err) => {
-        if (!cancelled) {
-          setError(err.message)
-          setLoading(false)
-        }
-      })
-
-    return () => {
-      cancelled = true
-    }
-  }, [url])
-
-  return { data, loading, error }
-}
-
-function FetchDemo() {
-  const [userId, setUserId] = useState(1)
-  const { data, loading, error } = useFetch<{ name: string; email: string }>(
-    `https://jsonplaceholder.typicode.com/users/${userId}`,
-  )
-
-  return (
-    <div className="example-card">
-      <h3>Custom Hook: useFetch</h3>
-      <div className="d-flex gap-2 mb-3">
-        {[1, 2, 3, 4, 5].map((id) => (
-          <button
-            key={id}
-            className={`btn btn-sm ${userId === id ? 'btn-info' : 'btn-outline-info'}`}
-            onClick={() => setUserId(id)}
-          >
-            User {id}
-          </button>
-        ))}
-      </div>
-      {loading && (
-        <p>
-          <span className="spinner-border spinner-border-sm me-2" role="status" />
-          Cargando...
-        </p>
-      )}
-      {error && <p className="text-danger">❌ {error}</p>}
-      {data && (
-        <p className="text-success">
-          ✅ {data.name} ({data.email})
-        </p>
-      )}
-      <CodeBlock>
-        {`function useFetch<T>(url: string) {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    fetch(url)
-      .then(res => res.json())
-      .then(json => { if (!cancelled) setData(json); })
-      .catch(err => { if (!cancelled) setError(err.message); })
-      .finally(() => { if (!cancelled) setLoading(false); });
-    return () => { cancelled = true; };
-  }, [url]);
-
-  return { data, loading, error };
-}`}
-      </CodeBlock>
-    </div>
-  )
-}
-
 export default function ReusingLogicWithCustomHooks() {
   return (
     <div>
@@ -273,8 +180,6 @@ function StatusBar() {
           ambos actualizarse.
         </p>
       </div>
-
-      <FetchDemo />
     </div>
   )
 }
